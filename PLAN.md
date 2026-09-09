@@ -2,9 +2,9 @@
 
 ## Checklist
 
-- [ ] Port `index.html` into an Astro component/page
-- [ ] Set up a blog content collection
-- [ ] Migrate 2-3 existing blog posts into the content collection
+- [x] Port `index.html` into an Astro component/page
+- [x] Set up a blog content collection
+- [x] Migrate 2-3 existing blog posts into the content collection
 - [ ] Deploy to Cloudflare Workers (in progress)
 
 ## Decisions
