@@ -1,0 +1,336 @@
+/* ==========================================================
+   Global Base
+   ========================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+               Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+               "Segoe UI Symbol", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 1.5rem 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================
+   Navigation
+   ========================================================== */
+ul.navbar {
+  list-style: none;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+ul.navbar li {
+  display: inline-block;
+}
+
+ul.navbar a {
+  display: inline-block;
+  padding: 0.4rem 0;
+  color: #0a58ff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+ul.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0a58ff;
+  transition: width 0.3s ease;
+}
+
+ul.navbar a:hover {
+  color: #0a58ff;
+  text-decoration: none;
+}
+
+ul.navbar a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================
+   Headings & Text
+   ========================================================== */
+h1, h2, h3, h4, h5, h6, strong {
+  color: #333;
+  font-weight: 650;
+}
+
+h1 {
+  margin: 0.25rem 0 0.5rem 0;
+  padding: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  min-height: 2.2em; /* improves LCP stability */
+}
+
+h2 {
+  margin: 0.75rem 0 0.5rem 0;
+  padding: 0;
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0.4rem 0;
+}
+
+/* ==========================================================
+   Header Container
+   ========================================================== */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+header .container {
+  max-width: 46rem;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* ==========================================================
+   Links
+   ========================================================== */
+a {
+  color: #0a58ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #0a58ff;
+}
+
+a:focus {
+  outline: 2px solid #0a58ff;
+  outline-offset: 2px;
+}
+
+/* Preserve color consistency in strong links */
+a strong, strong a {
+  color: inherit !important;
+}
+
+/* ==========================================================
+   Lists & Divider
+   ========================================================== */
+ul {
+  padding-left: 1.25rem;
+  margin: 0.4rem 0;
+}
+
+ul li {
+  margin: 0.3rem 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 1rem 0;
+}
+
+/* ==========================================================
+   Section Layout
+   ========================================================== */
+section ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+section ul li {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ==========================================================
+   Responsive Breakpoints
+   ========================================================== */
+
+/* Tablet (≤768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+    padding: 1.25rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  ul.navbar {
+    gap: 1.5rem;
+  }
+
+  section ul {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+
+/* Mobile (≤600px) */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.9rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin: 0.2rem 0 0.4rem 0;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    margin: 0.6rem 0 0.4rem 0;
+  }
+
+  p {
+    margin: 0.35rem 0;
+  }
+
+  ul.navbar {
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin: 0 0 1.25rem 0;
+  }
+
+  ul.navbar a {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  section ul {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding-left: 0;
+  }
+
+  section ul li {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  hr {
+    margin: 0.85rem 0;
+  }
+}
+
+/* Small phones (≤400px) */
+@media (max-width: 400px) {
+  body {
+    padding: 0.9rem 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  ul.navbar a {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  section ul li {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================================
+   Touch Device Optimizations
+   ========================================================== */
+@media (hover: none) and (pointer: coarse) {
+  ul.navbar a {
+    padding: 0.6rem 1rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ul.navbar a:hover::after {
+    width: 0;
+  }
+
+  ul.navbar a:active {
+    background: #f5f8ff;
+    border-radius: 6px;
+  }
+}
+
+/* ==========================================================
+   Landscape & Retina
+   ========================================================== */
+@media (max-width: 900px) and (orientation: landscape) {
+  body {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 0.15rem 0 0.3rem 0;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.3rem 0;
+  }
+
+  p {
+    margin: 0.3rem 0;
+  }
+
+  ul.navbar {
+    margin: 0 0 1rem 0;
+  }
+
+  hr {
+    margin: 0.75rem 0;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

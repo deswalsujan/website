@@ -1,0 +1,93 @@
+---
+// Shared page shell: head (meta tags, critical CSS, stylesheet) + top nav.
+// Pages pass in their own title/description so this can be reused for blog posts too.
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta (unchanged) -->
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="author" content="Sujan Deswal">
+  <link rel="canonical" href="https://sujandeswal.com">
+
+  <!-- Open Graph / Twitter (unchanged) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sujandeswal.com">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content="https://sujandeswal.com/assets/images/sujan_deswal_headshot_2025.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@sujandeswal">
+  <meta name="twitter:creator" content="@sujandeswal">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content="https://sujandeswal.com/assets/images/sujan_deswal_headshot_2025.webp">
+
+  <!-- Critical CSS (tiny, above-the-fold only) -->
+  <style>
+    *{box-sizing:border-box}
+    :root{--accent:#0a58ff}
+    body{
+      /* Fastest: system font stack (no downloads) */
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+                   Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+                   "Segoe UI Symbol", sans-serif;
+      color:#000; font-size:1rem; line-height:1.5;
+      margin:0 auto; max-width:42rem; padding:1.5rem 1rem;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    header{display:flex; flex-direction:column; align-items:center}
+    header .container{max-width:46rem; margin:0 auto; text-align:left}
+    h1{margin:.25rem 0 .5rem; font-size:2rem; line-height:1.2; font-weight:650}
+    p{margin:.4rem 0}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    /* Navbar essentials (keep the underline hover you had) */
+    ul.navbar{list-style:none; margin:0 0 1.5rem; padding:0; display:flex; justify-content:center; gap:2rem}
+    ul.navbar a{position:relative; font-weight:500; font-size:.95rem; letter-spacing:.01em; padding:.4rem 0}
+    ul.navbar a::after{content:""; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--accent); transition:width .3s ease}
+    ul.navbar a:hover::after{width:100%}
+
+    /* Stabilize LCP if your hero image is above the fold */
+    .hero-img{width:160px; height:160px; border-radius:50%; display:block}
+    @media (max-width:600px){ h1{font-size:1.6rem} }
+
+    /* Reduce CLS confirmation delay for text-based LCP */
+    h1{min-height:2.2em}
+  </style>
+
+  <!-- Defer the rest of your CSS without blocking first paint -->
+  <link rel="stylesheet" href="/assets/css/style.css" media="print" onload="this.media='all'">
+
+  <!-- Optional: noscript fallback for the deferred stylesheet -->
+  <noscript><link rel="stylesheet" href="/assets/css/style.css"></noscript>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="navbar">
+        <li class="navbar-left"><a href="/blog/">Blog</a></li>
+        <li class="navbar-right"><a href="https://linkedin.com/in/sujan-deswal-24b20518" target="_blank">LinkedIn</a></li>
+        <li class="navbar-right"><a href="https://x.com/sujandeswal" target="_blank">X (Twitter)</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <slot />
+    </div>
+  </header>
+
+  <slot name="after-header" />
+</body>
+</html>

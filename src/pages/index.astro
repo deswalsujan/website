@@ -1,17 +1,31 @@
 ---
+// Homepage: intro bio + list of guest posts.
+import Layout from '../layouts/Layout.astro';
 
+const title = "Sujan Deswal - B2B SaaS Marketer";
+const description = "B2B SaaS marketer helping companies acquire and retain customers. Leading marketing at EquityList. Previously AdPushup, Squad, and Hiver.";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={title} description={description}>
+  <h1>Hi, I'm Sujan Deswal</h1>
+  <p>I'm a marketer helping B2B SaaS companies get customers who'll be happy to pay them.</p>
+  <p>I've previously worked with <a href="https://www.adpushup.com" target="_blank">AdPushup</a> (Content Marketer, 2014-2017), <a href="https://www.classifyit.co/" target="_blank">Squad</a> (Sr. Growth Marketer, 2017-2018), and <a href="https://hiverhq.com" target="_blank">Hiver</a> (Head of Demand Gen. and later Associate Director of Product Marketing, 2019-2023).</p>
+  <p>Currently, I lead marketing at <a href="https://www.equitylist.co" target="_blank">EquityList</a> (2024-...), an equity management platform that helps companies manage and grant equity awards to their employees.</p>
+  <p>If you'd like to reach me, drop a message on LinkedIn.</p>
+
+  <Fragment slot="after-header">
+    <hr>
+
+    <section>
+      <h2>Guest posts</h2>
+      <ul>
+        <li><strong>The Next Web</strong> — <a href="https://web.archive.org/web/20221006214756/https://thenextweb.com/news/22-reasons-why-web-publishers-need-eye-tracking" target="_blank">22 Reasons Why Web Publishers Need Eye-tracking</a></li>
+        <li><strong>ConversionXL</strong> — <a href="https://cxl.com/blog/banner-ads-suck-boost-ctr/" target="_blank">Banner Ads Suck (and How to Make Them Convert Better)</a></li>
+        <li><strong>Semrush</strong> — <a href="https://web.archive.org/web/20181204125441/semrush.com/blog/4-psychological-insights-that-will-hook-readers-to-your-content/" target="_blank">4 Psychological Insights that Will Hook Readers to Your Content</a></li>
+        <li><strong>Mention</strong> — <a href="https://web.archive.org/web/20200810155611/https://mention.com/en/blog/email-outreach-tips/" target="_blank">7 Email Outreach Tips to Get More Replies</a></li>
+        <li><strong>Medium</strong> — <a href="https://medium.com/@SujanDeswal/startup-marketing-101-the-only-3-things-you-need-to-start-content-marketing-e3cec44f79c3" target="_blank">Startup Marketing 101 — The Only 3 Things You Need to Start Content Marketing</a></li>
+        <li><strong>Classifyit</strong> — <a href="https://archive.ph/dX0Mm" target="_blank">The Future Of Content Moderation: Humans And A.I.</a></li>
+      </ul>
+    </section>
+  </Fragment>
+</Layout>
