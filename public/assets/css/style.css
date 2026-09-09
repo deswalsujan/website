@@ -82,17 +82,45 @@ h1 {
   padding: 0;
   font-size: 2rem;
   line-height: 1.2;
-  min-height: 2.2em; /* improves LCP stability */
+}
+
+/* Reserves space for the homepage title only, to stabilize LCP; blog titles vary in length and shouldn't reserve fixed space */
+.hero-title {
+  min-height: 2.2em;
 }
 
 h2 {
-  margin: 0.75rem 0 0.5rem 0;
+  margin: 2rem 0 0.5rem 0;
   padding: 0;
   font-size: 1.25rem;
 }
 
+h3 {
+  margin: 1.5rem 0 0.4rem 0;
+  padding: 0;
+  font-size: 1.05rem;
+}
+
+h4 {
+  margin: 1.25rem 0 0.4rem 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+h5 {
+  margin: 1rem 0 0.4rem 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+h6 {
+  margin: 1rem 0 0.4rem 0;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
 p {
-  margin: 0.4rem 0;
+  margin: 0.4rem 0 0 0;
 }
 
 /* ==========================================================
@@ -107,6 +135,8 @@ header {
 
 header .container {
   max-width: 46rem;
+  min-width: 0;
+  width: 100%;
   margin: 0 auto;
   text-align: left;
 }
@@ -140,12 +170,12 @@ a strong, strong a {
 /* ==========================================================
    Lists & Divider
    ========================================================== */
-ul {
+ul, ol {
   padding-left: 1.25rem;
-  margin: 0.4rem 0;
+  margin: 0.4rem 0 0 0;
 }
 
-ul li {
+ul li, ol li {
   margin: 0.3rem 0;
 }
 
@@ -153,6 +183,37 @@ hr {
   border: none;
   border-top: 1px solid #eee;
   margin: 1rem 0;
+}
+
+/* ==========================================================
+   Code
+   ========================================================== */
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85em;
+  background: #f4f4f4;
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  background: #f4f4f4;
+  padding: 0.85rem 1rem;
+  margin: 0.6rem 0 0 0;
+  border-radius: 6px;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 1em;
 }
 
 /* ==========================================================
@@ -219,7 +280,7 @@ section ul li {
   }
 
   p {
-    margin: 0.35rem 0;
+    margin: 0.35rem 0 0 0;
   }
 
   ul.navbar {
@@ -315,7 +376,7 @@ section ul li {
   }
 
   p {
-    margin: 0.3rem 0;
+    margin: 0.3rem 0 0 0;
   }
 
   ul.navbar {
