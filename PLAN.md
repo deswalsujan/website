@@ -13,4 +13,4 @@
 - **Blog posts as markdown files in a content collection instead of a CMS** — no external service to manage; posts live in the repo as `.md` files.
 - **Deploying to Cloudflare Workers** — chosen hosting target for the migrated site.
 - Cloudflare adapter installed and configured, wrangler CLI confirmed working via npx. Logged in via `npx wrangler login` and deployed via `npx wrangler deploy`.
-- Worker is named `sujandeswal-website`, live at https://sujandeswal-website.deswalsujan.workers.dev (the default name `website` was unavailable on the `workers.dev` subdomain).
+- Worker is named `sujandeswal-website` (the default name `website` was unavailable on the `workers.dev` subdomain). Deployed via a `sujandeswal.com` custom domain route, with `workers_dev` disabled.

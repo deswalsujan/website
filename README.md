@@ -4,11 +4,11 @@ sujandeswal.com — live at **https://sujandeswal.com**.
 
 ## Before
 
-The site was static HTML, hand-edited directly through cPanel's File Manager on the hosting provider. There was no version control, no local development setup, and no way to preview a change before it went live — every edit was made straight to the production files.
+The homepage was static HTML, hand-edited through cPanel's File Manager. The blog ran separately on WordPress. Neither had version control or a way to preview changes before they went live.
 
 ## Now
 
-The site is built with [Astro](https://astro.build), with all content and code tracked in this git repo. Blog posts live as markdown files in an Astro content collection instead of hand-written HTML pages. Deploys go through the `wrangler` CLI to Cloudflare Workers, served on the custom domain `sujandeswal.com` rather than a shared hosting URL. Changes are made locally, reviewed, committed, and deployed deliberately instead of edited live.
+The site is built with Astro. Blog posts, previously on WordPress, are now markdown files stored directly in this repo alongside the rest of the code. Changes are made locally, previewed, and deployed with the wrangler CLI to Cloudflare Workers, running live at sujandeswal.com.
 
 This migration was done with [Claude Code](https://claude.com/claude-code).
 
