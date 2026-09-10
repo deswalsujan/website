@@ -3,21 +3,31 @@
 import Layout from '../layouts/Layout.astro';
 
 const title = "Sujan Deswal - B2B SaaS Marketer";
-const description = "B2B SaaS marketer helping companies acquire and retain customers. Leading marketing at EquityList. Previously AdPushup, Squad, and Hiver.";
+const description = "B2B SaaS marketer helping companies acquire and retain customers. Previously EquityList, AdPushup, Squad, and Hiver.";
 ---
 
 <Layout title={title} description={description}>
   <h1 class="hero-title">Hi, I'm Sujan Deswal</h1>
   <p>I'm a marketer helping B2B SaaS companies get customers who'll be happy to pay them.</p>
-  <p>I've previously worked with <a href="https://www.adpushup.com" target="_blank">AdPushup</a> (Content Marketer, 2014-2017), <a href="https://www.classifyit.co/" target="_blank">Squad</a> (Sr. Growth Marketer, 2017-2018), and <a href="https://hiverhq.com" target="_blank">Hiver</a> (Head of Demand Gen. and later Associate Director of Product Marketing, 2019-2023).</p>
-  <p>Currently, I lead marketing at <a href="https://www.equitylist.co" target="_blank">EquityList</a> (2024-...), an equity management platform that helps companies manage and grant equity awards to their employees.</p>
+  <p><strong>Currently:</strong> Exploring opportunities and working on AI side projects.</p>
+  <p><strong>Previously:</strong></p>
+  <ul class="roles">
+    <li><a href="https://www.equitylist.co" target="_blank">EquityList</a> (2024-2026): Marketing Lead</li>
+    <li><a href="https://hiverhq.com" target="_blank">Hiver</a> (2019-2023): Head of Demand Gen, later Associate Director of Product Marketing</li>
+    <li><a href="https://www.classifyit.co/" target="_blank">Squad</a> (2017-2018): Sr. Growth Marketer</li>
+    <li><a href="https://www.adpushup.com" target="_blank">AdPushup</a> (2014-2017): Content Marketer</li>
+  </ul>
   <p>If you'd like to reach me, drop a message on LinkedIn.</p>
+
+  <style>
+    .roles{margin-top:.75rem}
+  </style>
 
   <Fragment slot="after-header">
     <hr>
 
     <section>
-      <h2>Guest posts</h2>
+      <h2>Guest posts (yes, they're old)</h2>
       <ul>
         <li><strong>The Next Web</strong> — <a href="https://web.archive.org/web/20221006214756/https://thenextweb.com/news/22-reasons-why-web-publishers-need-eye-tracking" target="_blank">22 Reasons Why Web Publishers Need Eye-tracking</a></li>
         <li><strong>ConversionXL</strong> — <a href="https://cxl.com/blog/banner-ads-suck-boost-ctr/" target="_blank">Banner Ads Suck (and How to Make Them Convert Better)</a></li>
