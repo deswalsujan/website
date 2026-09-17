@@ -44,15 +44,16 @@ const isBlog = pathname.startsWith("/blog");
     :root{--accent:#0a58ff}
     body{
       font-family: var(--font-sans);
-      color:#000; font-size:1rem; line-height:1.5;
-      margin:0 auto; max-width:42rem; padding:1.5rem 1rem;
+      color:var(--ink); background:var(--paper); font-size:1rem; line-height:1.5;
+      margin:0 auto; max-width:var(--measure); padding:1.5rem 1rem;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
+    @media (min-width:1200px){ body{ margin-left:12%; margin-right:auto } }
     header{display:flex; flex-direction:column; align-items:center}
-    header .container{max-width:46rem; min-width:0; width:100%; margin:0 auto; text-align:left}
+    header .container{max-width:var(--measure); min-width:0; width:100%; margin:0 auto; text-align:left}
     h1{margin:.25rem 0 .5rem; font-size:2rem; line-height:1.2; font-weight:650}
-    p{margin:.4rem 0}
-    a{color:var(--accent); text-decoration:none}
+    p{margin:0 0 1.5em}
+    a{color:inherit; text-decoration:underline}
     a:hover{text-decoration:underline}
     /* Navbar essentials (keep the underline hover you had) */
     ul.navbar{list-style:none; margin:0 0 1.5rem; padding:0; display:flex; justify-content:center; gap:2rem}
@@ -74,11 +75,7 @@ const isBlog = pathname.startsWith("/blog");
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
 
-  <!-- Defer the rest of your CSS without blocking first paint -->
-  <link rel="stylesheet" href="/assets/css/style.css" media="print" onload="this.media='all'">
-
-  <!-- Optional: noscript fallback for the deferred stylesheet -->
-  <noscript><link rel="stylesheet" href="/assets/css/style.css"></noscript>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>

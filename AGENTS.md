@@ -8,6 +8,10 @@
 - Put a short plain-English comment at the top of every new page or component file saying what it does.
 - Write clear, specific commit messages (what changed, not "update" or "fixes").
 
+## Styling
+
+- **Two CSS files, and critical wins.** `Layout.astro` has a critical CSS block, `public/assets/css/style.css` has the full stylesheet. Astro's build places the critical `<style>` AFTER style.css's `<link>`, so where the two disagree on a property, critical CSS wins regardless of source order in Layout.astro. Any declaration that exists in both must be changed in both. If a rule in style.css appears to have no effect, check whether critical CSS sets the same property.
+
 ## Development
 
 When starting the dev server, use background mode:
