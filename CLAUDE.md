@@ -1,1 +1,2 @@
-AGENTS.md
+@~/code/sprint/CLAUDE.md
+@AGENTS.md
