@@ -6,7 +6,7 @@ description: "I'm spending close to six weeks solo building automations and syst
 
 I currently don't know coding. Week one of six, I shipped a python script using Claude that automatically checks in on a market every morning without me touching it. The broader goal I'm working towards is building a `GEO Visibility Tracker`
 
-**Why I'm doing this?**
+## Why I'm doing this?
 
 I've been using AI, for close to two years, for marketing projects for quite a while now like
 - building home and product webpages (design & content)
