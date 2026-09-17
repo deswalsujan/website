@@ -54,7 +54,7 @@ const builds = [
       <ul class="roles">
         {builds.map((build) => (
           <li>
-            <strong>Week {build.week}:</strong> <a href={build.repo} target="_blank">{build.title}</a>{build.writeup && (<> · <a href={build.writeup} target="_blank">write-up</a></>)}. {build.description}
+            <strong>Week {build.week}:</strong> <a href={build.repo} target="_blank">{build.title}</a>. {build.description}{build.writeup && (<> Read <a href={build.writeup}>the write-up</a>.</>)}
           </li>
         ))}
       </ul>
