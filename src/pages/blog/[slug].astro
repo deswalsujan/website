@@ -1,5 +1,5 @@
 ---
-// Individual blog post page: title, byline, date, then the post content.
+// Individual blog post page: title, meta line (series/date/reading time), then the post content.
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
@@ -12,23 +12,37 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { title, description, date } = post.data;
+const { title, description, date, series, part, parts, repo } = post.data;
 const { Content } = await render(post);
 
-const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const proseBody = (post.body ?? '').replace(/```[\s\S]*?```/g, '');
+const wordCount = proseBody.trim().split(/\s+/).filter(Boolean).length;
+const readingMinutes = Math.max(1, Math.ceil(wordCount / 220));
+
+const weekLabel = part && parts ? `Week ${part} of ${parts}` : undefined;
+
+// Only look forward (part + 1). No previous-post link: nothing asked for it,
+// and part - 1 for the first post in a series would be 0, which never exists.
+let nextPost;
+if (series && part) {
+	const allPosts = await getCollection('blog');
+	nextPost = allPosts.find((p) => p.data.series === series && p.data.part === part + 1);
+}
 ---
 
 <Layout title={`${title} - Sujan Deswal`} description={description}>
-  <h1>{title}</h1>
-  <p class="byline">By Sujan Deswal</p>
-  <time datetime={date.toISOString()}>{formattedDate}</time>
+  <h1 class="post-title">{title}</h1>
+  <p class="post-meta">{weekLabel && `${weekLabel}. `}Published <time datetime={date.toISOString()}>{formattedDate}</time>. {readingMinutes} minute read.{repo && <> <a href={repo}>Code on GitHub</a>.</>}</p>
 
   <div class="post-content">
     <Content />
   </div>
 
-  <style>
-    .byline { margin: 0.25rem 0 0; }
-    time { display: block; font-size: 0.85rem; color: #555; margin-bottom: 1.5rem; }
-  </style>
+  <footer class="post-footer">
+    {nextPost && <p><a href={`/blog/${nextPost.id}/`}>Next: {nextPost.data.title}</a></p>}
+    <p class="post-footer-bio">I'm a marketer helping B2B SaaS companies get customers who'll be happy to pay them.</p>
+    <p class="post-footer-bio">This post is part of a six-week sprint building one automation a week with Claude Code, in public.</p>
+  </footer>
 </Layout>

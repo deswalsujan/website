@@ -1,5 +1,5 @@
 // Defines the "blog" content collection: markdown files in src/content/blog/,
-// each validated against this schema (title, date, description).
+// each validated against this schema (title, date, description, optional series/part/parts).
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
@@ -9,6 +9,10 @@ const blog = defineCollection({
 		title: z.string(),
 		date: z.date(),
 		description: z.string(),
+		series: z.string().optional(),
+		part: z.number().optional(),
+		parts: z.number().optional(),
+		repo: z.string().optional(),
 	}),
 });
 
