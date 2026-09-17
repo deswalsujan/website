@@ -43,6 +43,6 @@ if (series && part) {
   <footer class="post-footer">
     {nextPost && <p><a href={`/blog/${nextPost.id}/`}>Next: {nextPost.data.title}</a></p>}
     <p class="post-footer-bio">I'm a marketer helping B2B SaaS companies get customers who'll be happy to pay them.</p>
-    <p class="post-footer-bio">This post is part of a six-week sprint building one automation a week with Claude Code, in public.</p>
+    {series && <p class="post-footer-bio">This post is part of a six-week sprint building one automation a week with Claude Code, in public.</p>}
   </footer>
 </Layout>
