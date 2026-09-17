@@ -43,10 +43,7 @@ const isBlog = pathname.startsWith("/blog");
     *{box-sizing:border-box}
     :root{--accent:#0a58ff}
     body{
-      /* Fastest: system font stack (no downloads) */
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-                   Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
-                   "Segoe UI Symbol", sans-serif;
+      font-family: var(--font-sans);
       color:#000; font-size:1rem; line-height:1.5;
       margin:0 auto; max-width:42rem; padding:1.5rem 1rem;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
@@ -72,6 +69,10 @@ const isBlog = pathname.startsWith("/blog");
     /* Reduce CLS confirmation delay for text-based LCP (homepage title only — blog titles vary in length) */
     .hero-title{min-height:2.2em}
   </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
 
   <!-- Defer the rest of your CSS without blocking first paint -->
   <link rel="stylesheet" href="/assets/css/style.css" media="print" onload="this.media='all'">

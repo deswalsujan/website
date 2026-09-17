@@ -1,3 +1,8 @@
+:root {
+  --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
 /* ==========================================================
    Global Base
    ========================================================== */
@@ -6,9 +11,7 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-               Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
-               "Segoe UI Symbol", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
   font-style: normal;
   color: #000;
@@ -189,7 +192,7 @@ hr {
    Code
    ========================================================== */
 code {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.85em;
   background: #f4f4f4;
   padding: 0.15em 0.35em;
@@ -197,7 +200,7 @@ code {
 }
 
 pre {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.85rem;
   line-height: 1.5;
   background: #f4f4f4;
