@@ -7,7 +7,7 @@ part: 1
 repo: "https://github.com/deswalsujan/geo-visibility-tracker"
 ---
 
-I currently don't know coding. Week one of six, I shipped a python script using Claude that automatically checks in on a market every morning without me touching it. The broader goal I'm working towards is building a `GEO Visibility Tracker`.
+I currently don't know coding. Week one of six, I shipped a script that asks an AI model the same buyer question every morning on its own, and logs whatever it says back. The broader goal I'm working towards is building a `GEO Visibility Tracker`.
 
 ## Why I'm doing this
 
@@ -33,26 +33,7 @@ This is the first time I'm using it to build and automate something end to end, 
 
 Model versions move fast enough that 3.6 Flash is only accurate as of this post.
 
-The whole thing is one request:
-
-```python
-MODEL = "gemini-3.6-flash"
-PROMPT = (
-    "What's the best cap table and equity management software "
-    "for an early-stage startup?"
-)
-
-def ask_gemini(prompt: str) -> str:
-    response = requests.post(
-        URL,
-        params={"key": API_KEY},
-        json={"contents": [{"parts": [{"text": prompt}]}]},
-        timeout=30,
-    )
-    response.raise_for_status()
-    data = response.json()
-    return data["candidates"][0]["content"]["parts"][0]["text"]
-```
+The whole thing is one request: send the buyer question to Gemini's API, and pull the text out of the reply.
 
 And this is what shows up in `results.csv` once it's running on its own:
 
@@ -83,9 +64,9 @@ Now as much as I'd like to take credit for this, my involvement here was making 
 
 **The takeaway:** Simple, check your output, early and often.
 
-## What I got wrong
+## A close call
 
-I rotated an API key mid-week after Claude printed it in the terminal while debugging. It didn't leave my local but I've learned that exposing API keys is a common and huge (and potentially costly) mistake vibe coders make and I'm working on inculcating best-practices as I'm learning.
+Mid-week Claude printed an API key in the terminal while debugging. It flagged the error itself and recommended that I could either let it be since it only existed on my local in a session or I could rotate it. I chose to rotate it immediately because I've read that exposing API keys is a common and huge (and potentially costly) mistake vibe coders make and I'm working on inculcating best-practices as I'm learning.
 
 ## Next week
 
