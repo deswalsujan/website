@@ -2,11 +2,13 @@
 import { defineConfig } from 'astro/config';
 
 import cloudflare from '@astrojs/cloudflare';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://sujandeswal.com',
   adapter: cloudflare(),
+  integrations: [sitemap()],
   markdown: {
     shikiConfig: {
       theme: 'github-light',
