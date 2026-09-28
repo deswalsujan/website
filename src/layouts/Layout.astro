@@ -51,8 +51,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     @media (min-width:1200px){ body{ margin-left:12%; margin-right:auto } }
-    header{display:flex; flex-direction:column; align-items:center}
-    header .container{max-width:var(--measure); min-width:0; width:100%; margin:0 auto; text-align:left}
+    header, .main-top{display:flex; flex-direction:column; align-items:center}
+    .main-top .container{max-width:var(--measure); min-width:0; width:100%; margin:0 auto; text-align:left}
     h1{margin:.25rem 0 .5rem; font-size:2rem; line-height:1.2; font-weight:650}
     p{margin:0 0 1.5em}
     a{color:inherit; text-decoration:underline}
@@ -84,6 +84,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 </head>
 
 <body>
+  <!-- Site header: just the masthead and nav. Page content goes in the main element below -->
   <header>
     <div class="masthead">
       <a href="/" class="wordmark">Sujan Deswal</a>
@@ -96,12 +97,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </ul>
       </nav>
     </div>
-
-    <div class="container">
-      <slot />
-    </div>
   </header>
 
-  <slot name="after-header" />
+  <!-- The page's one main landmark. .main-top reuses the old header's centring so layout is unchanged -->
+  <main>
+    <div class="main-top">
+      <div class="container">
+        <slot />
+      </div>
+    </div>
+
+    <slot name="after-header" />
+  </main>
 </body>
 </html>
