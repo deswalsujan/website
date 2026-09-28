@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
@@ -9,6 +9,30 @@ export default defineConfig({
   site: 'https://sujandeswal.com',
   adapter: cloudflare(),
   integrations: [sitemap()],
+  // Fonts are downloaded from Google at build time and served from our own domain,
+  // so visitors never wait on fonts.googleapis.com. Same families and weights as before.
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: 'Zalando Sans',
+      cssVariable: '--font-zalando-sans',
+      weights: ['400 700'],
+      styles: ['normal'],
+      subsets: ['latin', 'latin-ext'],
+      display: 'swap',
+      fallbacks: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'Geist Mono',
+      cssVariable: '--font-geist-mono',
+      weights: [400],
+      styles: ['normal'],
+      subsets: ['latin', 'latin-ext'],
+      display: 'swap',
+      fallbacks: ['ui-monospace', 'SF Mono', 'Menlo', 'monospace'],
+    },
+  ],
   markdown: {
     shikiConfig: {
       theme: 'github-light',

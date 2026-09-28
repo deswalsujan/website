@@ -1,6 +1,8 @@
 ---
 // Shared page shell: head (meta tags, critical CSS, stylesheet) + top nav.
 // Pages pass in their own title/description so this can be reused for blog posts too.
+import { Font } from "astro:assets";
+
 interface Props {
 	title: string;
 	description: string;
@@ -74,9 +76,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .hero-title{min-height:2.2em}
   </style>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans:wght@400..700&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts (configured in astro.config.mjs); preload only the body font's latin file -->
+  <Font cssVariable="--font-zalando-sans" preload={[{ subset: "latin" }]} />
+  <Font cssVariable="--font-geist-mono" />
 
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>

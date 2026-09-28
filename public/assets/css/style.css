@@ -1,6 +1,7 @@
 :root {
-  --font-sans: "Zalando Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* Both variables below are defined by Astro's <Font /> component in Layout.astro */
+  --font-sans: var(--font-zalando-sans);
+  --font-mono: var(--font-geist-mono);
   --measure: 38rem;
   --paper: #f6f7f8;
   --ink: #1c2024;
