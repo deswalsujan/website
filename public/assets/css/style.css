@@ -588,3 +588,9 @@ section ul li {
     margin-top: 2.25rem;
   }
 }
+
+/* Images never grow wider than the text column. */
+img {
+  max-width: 100%;
+  height: auto;
+}

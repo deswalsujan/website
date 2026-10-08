@@ -7,7 +7,8 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://sujandeswal.com',
-  adapter: cloudflare(),
+  // Images are optimised once at build time, so Cloudflare doesn't resize them on every request.
+  adapter: cloudflare({ imageService: 'compile' }),
   integrations: [sitemap()],
   // Fonts are downloaded from Google at build time and served from our own domain,
   // so visitors never wait on fonts.googleapis.com. Same families and weights as before.
