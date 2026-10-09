@@ -10,14 +10,21 @@ const linkedin = "https://linkedin.com/in/sujan-deswal-24b20518";
 // Add `writeup: "https://..."` once a week's Friday post goes live.
 const builds = [
   {
-    week: 2,
+    label: "Weeks 3 & 4",
+    title: "GSC GEO MCP",
+    repo: "https://github.com/deswalsujan/gsc-geo-mcp",
+    writeup: "/blog/sprint-week-3",
+    description: "Had a setback. Planned to build a tool that used Google Search Console data to track AI traffic on my website but it had a severe logic flaw. Both my builds are parked currently as I'm rethinking what to build next.",
+  },
+  {
+    label: "Week 2",
     title: "GEO Visibility Tracker (contd.)",
     repo: "https://github.com/deswalsujan/geo-visibility-tracker",
     writeup: "/blog/sprint-week-2",
     description: "Now asks three models 27 buyer questions every morning and posts a weekly Slack update on which brands gained or lost visibility in AI answers.",
   },
   {
-    week: 1,
+    label: "Week 1",
     title: "GEO Visibility Tracker",
     repo: "https://github.com/deswalsujan/geo-visibility-tracker",
     writeup: "/blog/sprint-week-1",
@@ -57,11 +64,11 @@ const builds = [
 
     <section>
       <h2>Building in public</h2>
-      <p>Six weeks, one build a week, using Claude Code as the primary tool. Each build gets its own public repo from day one. Following along here and on <a href={linkedin} target="_blank">LinkedIn</a>.</p>
+      <p>One build at a time, using Claude Code as the primary tool.</p>
       <ul class="roles">
         {builds.map((build) => (
           <li>
-            <strong>Week {build.week}:</strong> <a href={build.repo} target="_blank">{build.title}</a>. {build.description}{build.writeup && (<> Read <a href={build.writeup}>the write-up</a>.</>)}
+            <strong>{build.label}:</strong> <a href={build.repo} target="_blank">{build.title}</a>. {build.description}{build.writeup && (<> Read <a href={build.writeup}>the write-up</a>.</>)}
           </li>
         ))}
       </ul>

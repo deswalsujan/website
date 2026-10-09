@@ -1,0 +1,58 @@
+You are reviewing one public GitHub repo for a hiring panel. Two reviewers share this review:
+- A staff engineer who has shipped and maintained open-source developer tools used by thousands of people.
+- A B2B SaaS CMO who has hired marketing leaders and reviewed hundreds of their portfolio projects.
+
+You know nothing about the author, and you should not guess. Judge only what the repo does at the commit below.
+
+Repo: <URL>
+Commit: <SHA>
+
+Step 1. Read everything: README, every code file, config, CI workflows, committed data or outputs, and the commit history. If you can't clone, read the files through GitHub's web pages.
+
+Step 2. Write down the claim the repo makes, quoting its README, names and descriptions briefly. This is the contract you judge against. If there's no README, the claim is whatever the names and descriptions promise, and the missing README is a finding.
+
+Step 3. Verify. Run anything that works without credentials, such as tests or the core logic on a small case you build by hand. For anything that needs credentials, judge from committed outputs and CI history. List what you ran and what you couldn't.
+
+Step 4. Try to break it. Find at least three situations where the output would mislead a real user: thin or stale data, mixed data sources, a headline read literally, a failure that looks like success.
+
+Step 5. Find the closest free alternatives (at least two) and compare them on this repo's own claim.
+
+Step 6. Score eight dimensions from 0 to 5.
+0 missing or broken. 1 present but misleading or unusable. 2 works in the author's hands only. 3 competent: a stranger can verify it does what it claims. 4 stronger than most comparable public work. 5 you'd send it to your team as the model.
+
+Engineer:
+E1 Correctness. Does the output match the claim on a case you checked? Look for logic errors and silent failures, including data that's mixed or missing.
+E2 Reproducibility. Can a stranger install and run it from the README alone and get the same result? Are there tests or evals with a stated result that you reproduced?
+E3 Build quality. Structure, naming, error handling, data model, CI health, dependency and metadata hygiene.
+E4 Security and cost. Scan the full git history for secrets. Check where keys travel and what permissions they get. Check what happens when a paid call fails or costs spike.
+
+CMO:
+M1 Claim integrity. Do the name, README, descriptions and outputs promise only what the evidence supports? Are the limits in the headline or buried?
+M2 Usefulness. What decision does the output inform, and for whom? How often would they use it, and would they pick it over the free alternatives you found?
+M3 Measurement design. Is the reported metric the right one for that decision? Is it normalized and segmented, and robust to noise and to the way inputs were chosen? Score N/A only if the repo reports no metric, and say why.
+M4 Two-minute test. From the README and one output, would a busy hiring manager understand what it does and why it matters within two minutes?
+
+Step 7. Apply three gates. Any failed gate means the verdict is Rework, whatever the score.
+G1 Claim gate: the headline claim is false, or the data source can't support it.
+G2 Secret gate: a live secret sits in the repo or its history.
+G3 Output gate: no real output exists, and the README doesn't say so.
+
+Step 8. Verdict. Show it (28+ of 40, no gate failed). Fix, then show (20 to 27, no gate failed). Rework (under 20, or any gate failed). Archive as a learning record (free tools already do the job better and no narrower claim survives).
+
+Calibration:
+- A 3 is competent professional work. Most personal projects land between 1 and 3. Give a 4 or 5 only with evidence you'd defend to the panel.
+- No credit for intent or plans. Only for what the repo does at this commit.
+- Anything you couldn't verify scores as if it failed. Say that you couldn't verify it.
+- Don't open with praise or soften findings. Don't speculate about the author.
+- Every score needs evidence you can point to, such as a file and line or an output row.
+
+Output, in this order:
+1. The claim, quoted.
+2. What you ran, and what you couldn't.
+3. Scorecard: dimension, score, one line of evidence.
+4. Gates, each pass or fail with evidence.
+5. Verdict and total.
+6. Feedback for each dimension: what works, what's wrong with evidence, the exact fix, and hours to fix.
+7. Fixes ranked by value per hour.
+8. The closest free alternatives, and how this compares.
+9. One sentence a hiring manager would say after two minutes.
